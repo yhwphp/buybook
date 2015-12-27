@@ -1,5 +1,9 @@
 daily=/Study/daily CD=. {
+ README.md
+ all.prj
  index.php
+ iqianjin_sys.sql
+ sys.sql
  Home=Home {
   Common=Common {
    common.php
@@ -11,9 +15,8 @@ daily=/Study/daily CD=. {
   }
   Lib=Lib {
    Action=Action {
+    BaseAction.class.php
     IndexAction.class.php
-    BookAction.class.php
-	BaseAction.class.php
    }
    Model=Model{
 	BookGroupModel.class.php
