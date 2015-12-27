@@ -1,6 +1,6 @@
 <?php
 class BookGroupModel  extends Model{
-	protected $tableName = 'group';
+	protected $tableName = 'bookgroup';
 
 	public function genId()
 	{

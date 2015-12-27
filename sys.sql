@@ -34,13 +34,13 @@ CREATE TABLE `book` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `group`
+-- Table structure for table `bookgroup`
 --
 
-DROP TABLE IF EXISTS `group`;
+DROP TABLE IF EXISTS `bookgroup`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `group` (
+CREATE TABLE `bookgroup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(45) NOT NULL DEFAULT '',
   `name` varchar(128) NOT NULL DEFAULT '',
