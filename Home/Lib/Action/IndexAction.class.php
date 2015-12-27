@@ -107,8 +107,7 @@ class IndexAction extends BaseAction
 
     public function loginPost(){
         $username = $this->_param('username');
-        $password = $this->_param('password');
-        $M = M('User');
+        $password = $this->_param('password'); $M = M('User');
         $condition['name'] = $username;
         $users = $M->where($condition)->limit(1)->select();
         $user = $users[0];
