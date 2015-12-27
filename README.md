@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ##介绍##
 用thinkphp框架为团队写的一个日报系统
 
@@ -11,3 +12,7 @@
 2. 在测试环境中修改`Home/Conf/debug.php`来配置数据库
 3. 如在生产环境修改`index.php`，修改`define('APP_DEBUG',false)`，再修改`Home/Conf/config.php`来配置数据库
 4. 访问你的部署地址/index.php
+=======
+# buybook
+团队采购图书管理系统，1.分批次；2.普通用户填写购买需求；3.管理员账户自动汇总当前批次
+>>>>>>> dba3ac390ae636a47f33bdc77ef7c8dbac0eeace
