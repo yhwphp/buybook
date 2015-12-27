@@ -93,7 +93,6 @@ $(function(){
 	$(".finish").click(function(){
 		var $this = $(this);
 		var group_id = $this.parent().parent().children('input').val();
-		alert(group_id);
 		$.ajax({
 				url: 'index.php?c=Index&a=finishGroup',
 				data: {id:group_id},
