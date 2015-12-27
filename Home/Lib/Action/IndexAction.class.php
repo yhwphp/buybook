@@ -90,7 +90,7 @@ class IndexAction extends BaseAction
     public function finishGroup(){
 		$this->checkLogin();
         $id = $this->_param('id');
-        $M = M('group');
+        $M = M('bookgroup');
 		$res = $M->where(['id'=>$id])->save(['status'=>1]);
 		if($res){
 			$this->ajaxReturn($res,'成功',1);
