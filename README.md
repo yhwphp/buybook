@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 ##介绍##
-用thinkphp框架为团队写的一个日报系统
+用thinkphp框架为团队写的一个图书购买管理统计系统
 
 ##主要功能##
 1. 小组成员注册到相应小组，每天发布自己的当天工作日报和明天计划
@@ -8,7 +7,7 @@
 3. 团队日报会收集各组的简报，并生成一张简报图片
 
 ##安装部署##
-1. 先导入数据库`iqianjin_sys.sql`数据库
+1. 先导入数据库`sys.sql`数据库
 2. 在测试环境中修改`Home/Conf/debug.php`来配置数据库
 3. 如在生产环境修改`index.php`，修改`define('APP_DEBUG',false)`，再修改`Home/Conf/config.php`来配置数据库
 4. 访问你的部署地址/index.php
