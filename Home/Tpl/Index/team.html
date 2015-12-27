@@ -1,0 +1,122 @@
+<include file="Public:header" />
+<style>
+table tr td {
+	    padding: 2px 5px;
+		    border-collapse: collapse;
+			    text-align: center;
+				    font-weight: bold;
+	background: #CBE2FB;
+	border: 1px solid white;
+	vertical-align: top;
+}
+table tr th {
+	    padding: 2px 5px;
+		    border-collapse: collapse;
+			    text-align: center;
+				    font-weight: bold;
+	background: #CBE2FB;
+	border: 1px solid white;
+	vertical-align: top;
+}
+</style>
+    <div class="ui-tab">
+        <ul class="ui-tab-items">
+            <li class="ui-tab-item">
+                <a href="index.php?c=Index&a=index">我的</a>
+            </li>
+            <li class="ui-tab-item ui-tab-item-current">
+                <a href="index.php?c=Index&a=team">团队</a>
+            </li>
+        </ul>
+    </div>
+	<div class='ing_list' style="padding-top:10px;">
+	<div><h4>进行中</h4></div>
+	<table class='ing_list'>
+	<?php foreach($ing_groups as $ing_group){?>
+	<tr>
+	<?php
+		echo '<td colspan="3" style="background:#C0C0C0">批次:'.$ing_group['name'].'</td>';
+	?>
+	<input type="hidden" name="group_id" value='<?=$ing_group["id"];?>'/>
+		<td style="background:#C0C0C0;"><button class='finish'>设置完成</button></td>
+	</tr>
+		<tr>
+			<th>购买人</th>
+			<th>书名</th>
+			<th>购买地址</th>
+			<th>添加时间</th>
+		</tr>
+		<?php foreach($ing_group['books'] as $book){?>
+		<tr>
+			<td><?=$book['uname'];?></td>
+			<td><?=$book['name'];?></td>
+			<td><?=$book['url'];?></td>
+			<td><?=$book['add_time'];?></td>
+		</tr>
+		<?php
+		}
+	}
+	?>
+	</table>
+	</div>
+
+	<div class='ed_list' style="padding-top:10px;">
+	<div><h4>已完成</h4></div>
+	<table class='ed_list'>
+	<?php foreach($ed_groups as $ed_group){?>
+	<tr>
+	<?php
+		echo '<td colspan="4" style="background:#C0C0C0">批次:'.$ed_group['name'].'</td>';
+	?>
+	</tr>
+		<tr>
+			<th>购买人</th>
+			<th>书名</th>
+			<th>购买地址</th>
+			<th>添加时间</th>
+		</tr>
+		<?php foreach($ed_group['books'] as $book){?>
+		<tr>
+			<td><?=$book['uname'];?></td>
+			<td><?=$book['name'];?></td>
+			<td><?=$book['url'];?></td>
+			<td><?=$book['add_time'];?></td>
+		</tr>
+		<?php
+		}
+	}
+	?>
+	</table>
+	</div>
+<script type="text/javascript">
+$(function(){
+	$(".finish").click(function(){
+		var $this = $(this);
+		var group_id = $this.parent().parent().children('input').val();
+		alert(group_id);
+		$.ajax({
+				url: 'index.php?c=Index&a=finishGroup',
+				data: {id:group_id},
+				type: 'post',
+				dataType: "json",
+				error: function (ret, error) {
+					$this.find('.error').html('设置失败');
+				},
+				success: function (ret) {
+					if (ret.status === 1) {
+						if(document.referrer){
+							location.href = 'index.php?c=Index&a=team';
+							alert('success');
+						}else{
+							location.href = 'index.php?c=Index&a=team';
+						}
+					} else {
+						alert(ret.info);
+					}
+				}
+			});
+		});
+});
+</script>
+<include file="Public:footer" />
+
